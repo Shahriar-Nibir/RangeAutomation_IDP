@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Range Automation System
+{% endblock %}
+
+{% block navbar %}
+<a class="nav-item nav-link" href="{% url 'inputfirer' %}">Input</a>
+<a class="nav-item nav-link active" href="{% url 'showmember' %}">Members</a>
+<a class="nav-item nav-link" href="#">Firing Result</a>
+<a class="nav-item nav-link" href="{% url 'logoutUser' %}">Log Out</a>
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="container">
+
+<table class="table table-bordered table-sm bg-light">
+    <thead class='text-center'>
+      <tr>
+        <th scope="col">Number</th>
+        <th scope="col">Rank</th>
+        <th scope="col">Name</th>
+        <th scope="col">Coy</th>
+        <th scope="col">Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for f in firer %}
+      <tr>
+        <th scope="row" class='text-center'>{{f.number}}</th>
+        <td class='text-center'>{{f.rank}}</td>
+        <td class=''>{{f.name}}</td>
+        <td class='text-center'>{{f.coy}}</td>
+        <td class='text-center'>{{f.unit}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<a class="nav-item nav-link" href="#">Help</a>
+{% endblock %}

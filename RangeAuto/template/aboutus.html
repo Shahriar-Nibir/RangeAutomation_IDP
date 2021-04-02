@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Range Automation System
+{% endblock %}
+
+{% block navbar %}
+<a class="nav-item nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="col-12 half-nav my-3 px-3 py-2 text-justify">
+        <h6 class="active">
+            Aim:
+        </h6>
+        <p class="active">
+            Our project Digital Range management system aims to make firing range result calculation more efficient and less strenuous.
+        </p>
+    </div>
+    <div class="col-12 half-nav my-3 px-3 py-2 text-justify">
+        <p class="active">
+            The calculation method that prevails in our Bangladesh Army is time consuming and also it can't be judged as perfect result as human results can not be measured accurately. With our digital approach we calculate the results with the help of modified target that can be used more than once and also the image processing from the picture taken by the WiFi camera helps to formulate accurate results of firing. The results are kept in personal files of the person who is firing and can be accessed by only the authorized personnel of the respective unit.
+            Our goal is to reduce human fatigue, gain precision of result and ensure safety and security of the storage of the compiled results. The project has been formally given by Army Headquarters but it was not successful. We aim to make the best use out of it with a vision to make the result calculation precise and accurate
+        </p>
+    </div>
+    <div class="col-12 half-nav my-3 px-3 py-2 text-justify">
+        <p class="active">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam repudiandae optio possimus ex id sit ullam iste commodi. Quis est fuga incidunt minima, ab temporibus laborum eveniet sed eum dolor, itaque illum ea iste! Laudantium tenetur incidunt quod quis neque, labore quos ratione dicta consequuntur sunt ducimus saepe distinctio atque, reiciendis pariatur eligendi nobis. Eos at modi impedit provident nihil officiis rerum? Voluptates consequatur mollitia sapiente exercitationem quasi maxime officia earum cum. Pariatur rem excepturi nemo veniam quam. Reiciendis laudantium voluptatibus natus ab molestiae quis, saepe enim recusandae asperiores aliquid.
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+<a class="nav-item nav-link p-3 active" href="{% url 'aboutus' %}">About Us</a>
+{% endblock %}
