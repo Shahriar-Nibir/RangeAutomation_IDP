@@ -55,3 +55,24 @@ def inputfirer(request):
                 request, "Wrong Credentials. Firer already exists with this credentials.")
     context = {'form': form}
     return render(request, 'inputfirer.html', context)
+
+
+def firingresult(request):
+    firer = None
+    if request.method == 'POST':
+        number = request.POST['number']
+        try:
+            firer = Firer.objects.get(number=number)
+            return redirect('result', pk=firer.id)
+        except:
+            messages.warning(
+                request, "Person with this number doesnot exits. May be you have typed something wrong.")
+    context = {}
+    return render(request, 'firingresult.html', context)
+
+
+def result(request, pk):
+    firer = Firer.objects.get(id=pk)
+    result = Result.objects.filter(firer=firer)
+    context = {'firer': firer, 'result': result}
+    return render(request, 'result.html', context)

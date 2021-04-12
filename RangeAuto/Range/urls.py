@@ -8,5 +8,7 @@ urlpatterns = [
     path('logoutUser', views.logoutUser, name='logoutUser'),
     path('aboutus', views.aboutus, name='aboutus'),
     path('inputfirer', views.inputfirer, name='inputfirer'),
-    path('showmember', views.showmember, name='showmember')
+    path('showmember', views.showmember, name='showmember'),
+    path('firingresult', views.firingresult, name='firingresult'),
+    path('result/<str:pk>', views.result, name='result')
 ]

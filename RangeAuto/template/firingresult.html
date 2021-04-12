@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block title %}
-Range Automation System
+Firing Result
 {% endblock %}
 
 {% block navbar %}
-<a class="nav-item nav-link active" href="{% url 'inputfirer' %}">Input</a>
+<a class="nav-item nav-link" href="{% url 'inputfirer' %}">Input</a>
 <a class="nav-item nav-link" href="{% url 'showmember' %}">Members</a>
-<a class="nav-item nav-link" href="{% url 'firingresult' %}">Firing Result</a>
+<a class="nav-item nav-link active" href="{% url 'firingresult' %}">Firing Result</a>
 <a class="nav-item nav-link" href="{% url 'logoutUser' %}">Log Out</a>
 {% endblock %}
 
@@ -16,19 +16,21 @@ Range Automation System
 <div class="container">
     <div class="row mt-4 d-flex justify-content-center">
         <div class="col-md-5 col-xs-12">
-            <div class="h5 login-card text-center p-4 mb-3">
+            <a href="{% url 'inputfirer' %}" class="block-link">
+            <div class="h5 block-link text-center p-4 mb-3 not-active">
                 Input Credentials
             </div>
+            </a>
             <a href="{% url 'showmember' %}" class="block-link">
             <div class="h5 block-link text-center p-4 mb-3 not-active">
                 Show Members
             </div>
             </a>
-            <a href="{% url 'firingresult' %}" class="block-link">
-            <div class="h5 block-link text-center p-4 mb-3 not-active">
+            
+            <div class="h5 login-card text-center p-4 mb-3">
                 Firing Result 
             </div>
-            </a>
+
         </div>
         <div class="col-md-6 col-xs-12">
             {% if messages %}
@@ -43,15 +45,13 @@ Range Automation System
             <div class="login-card p-5">
             <form action="" method='POST'>
                 {% csrf_token %}
-                {% for f in form %}
                 <div class="row per-input">
-                <div class="col-4 pl-4 d-flex align-items-center"><label for="" class="">{{f.label}}</label></div>
-                <div class="col-8 h6">{{f}}</div>
+                <div class="col-4 pl-4 d-flex align-items-center">Number</div>
+                <div class="col-8 h6"><input type="text" name="number" class = "form-control"></div>
                 </div>
-                {% endfor %}
                 <div class="col-12 d-flex justify-content-center mt-4">
                     <div>
-                        <button type="submit" class="idp-btn">Create</button>
+                        <button type="submit" class="idp-btn">Show</button>
                     </div>
                 </div>
             </form>

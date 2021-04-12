@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{firer.name}}
+{% endblock %}
+
+{% block navbar %}
+<a class="nav-item nav-link" href="{% url 'inputfirer' %}">Input</a>
+<a class="nav-item nav-link" href="{% url 'showmember' %}">Members</a>
+<a class="nav-item nav-link active" href="{% url 'firingresult' %}">Firing Result</a>
+<a class="nav-item nav-link" href="{% url 'logoutUser' %}">Log Out</a>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <ul class="no-bullet h5">
+        <li class="">Number: {{firer.number}}</li>
+        <li class="">Name: {{firer.name}}</li>
+        <li class="">Rank: {{firer.rank}}</li>
+        <li class="">Company: {{firer.coy}}</li>
+        <li class="">Unit: {{firer.unit}}</li>
+    </ul>   
+</div>
+<div class="container mt-4">
+
+    <table class="table table-bordered table-sm bg-light">
+        <thead class='text-center'>
+          <tr>
+            <th scope="col">RET</th>
+            <th scope="col">Group</th>
+            <th scope="col">Figure-2(a)L</th>
+            <th scope="col">Figure-2(a)O</th>
+            <th scope="col">Figure-3(a)</th>
+            <th scope="col">ETS</th>
+            <th scope="col">Total</th>
+            <th scope="col">Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for r in result %}
+          <tr>
+            <th scope="row" class='text-center'>{{r.ret}}</th>
+            <td class='text-center'>{{r.gp}}</td>
+            <td class='text-center'>{{r.fig2_ly}}</td>
+            <td class='text-center'>{{r.fig2_other}}</td>
+            <td class='text-center'>{{r.fig3}}</td>
+            <td class='text-center'>{{r.ets}}</td>
+            <td class='text-center'>{{r.total}}</td>
+            <td class='text-center'>{{r.remark}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    
+{% endblock %} 
+
+{% block footer %}
+<a class="nav-item nav-link" href="#">Help</a>
+{% endblock %}
