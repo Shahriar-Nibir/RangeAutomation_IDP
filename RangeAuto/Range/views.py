@@ -4,14 +4,17 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .models import *
+from .decorators import *
 
 # Create your views here.
 
 
+@unauthenticated_user
 def home(request):
     return render(request, 'home.html')
 
 
+@unauthenticated_user
 def loginUser(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -19,7 +22,14 @@ def loginUser(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('inputfirer')
+            if request.user.groups.exists():
+                group = request.user.groups.all()[0].name
+                if group == 'Unit-User':
+                    return redirect('inputfirer')
+                elif group == 'Range-Admin':
+                    return redirect('adddetail')
+            else:
+                return render(request, 'invalid.html')
         else:
             messages.info(request, "User with this credentials doesn't exist.")
     return render(request, 'login.html')
@@ -31,11 +41,13 @@ def logoutUser(request):
     return redirect('login')
 
 
+@unauthenticated_user
 def aboutus(request):
     return render(request, 'aboutus.html')
 
 
 @login_required(login_url='login')
+@allowed_user(allowed_role=['Unit-User'])
 def showmember(request):
     firer = Firer.objects.all()
     context = {'firer': firer}
@@ -43,6 +55,7 @@ def showmember(request):
 
 
 @login_required(login_url='login')
+@allowed_user(allowed_role=['Unit-User'])
 def inputfirer(request):
     form = FirerForm()
     if request.method == 'POST':
@@ -57,6 +70,8 @@ def inputfirer(request):
     return render(request, 'inputfirer.html', context)
 
 
+@login_required(login_url='login')
+@allowed_user(allowed_role=['Unit-User'])
 def firingresult(request):
     firer = None
     if request.method == 'POST':
@@ -71,8 +86,17 @@ def firingresult(request):
     return render(request, 'firingresult.html', context)
 
 
+@login_required(login_url='login')
+@allowed_user(allowed_role=['Unit-User'])
 def result(request, pk):
     firer = Firer.objects.get(id=pk)
     result = Result.objects.filter(firer=firer)
     context = {'firer': firer, 'result': result}
     return render(request, 'result.html', context)
+
+
+@login_required(login_url='login')
+@allowed_user(allowed_role=['Range-Admin'])
+def adddetail(request):
+    context = {}
+    return render(request, 'adddetail.html', context)

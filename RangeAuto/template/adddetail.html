@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Firing Result
+{% endblock %}
+
+{% block navbar %}
+<a class="nav-item nav-link active" href="{% url 'adddetail' %}">Add Detail</a>
+<a class="nav-item nav-link" href="#">compile Result</a>
+<a class="nav-item nav-link" href="{% url 'logoutUser' %}">Log Out</a>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-4 d-flex justify-content-center">
+        <div class="col-md-5 col-xs-12">
+            <div class="h5 login-card text-center p-4 mb-3">
+                Firing Result 
+            </div>
+            <a href="{% url 'inputfirer' %}" class="block-link">
+            <div class="h5 block-link text-center p-4 mb-3 not-active">
+                Compile Result
+            </div>
+            </a>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <!-- {% if messages %}
+            <div class="p-3 message">
+                {% for message in messages %}
+                <p class="text-center idp-in-link h6">
+                    {{message}}
+                </p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="login-card p-5">
+            <form action="" method='POST'>
+                {% csrf_token %}
+                <div class="row per-input">
+                <div class="col-4 pl-4 d-flex align-items-center">Number</div>
+                <div class="col-8 h6"><input type="text" name="number" class = "form-control"></div>
+                </div>
+                <div class="col-12 d-flex justify-content-center mt-4">
+                    <div>
+                        <button type="submit" class="idp-btn">Show</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div> -->
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<a class="nav-item nav-link" href="#">Help</a>
+{% endblock %}

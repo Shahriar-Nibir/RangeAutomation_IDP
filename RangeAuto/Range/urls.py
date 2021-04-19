@@ -10,5 +10,6 @@ urlpatterns = [
     path('inputfirer', views.inputfirer, name='inputfirer'),
     path('showmember', views.showmember, name='showmember'),
     path('firingresult', views.firingresult, name='firingresult'),
-    path('result/<str:pk>', views.result, name='result')
+    path('result/<str:pk>', views.result, name='result'),
+    path('adddetail', views.adddetail, name='adddetail')
 ]
