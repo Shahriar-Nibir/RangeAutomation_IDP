@@ -1,6 +1,7 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
-
+from ajax_select import urls as ajax_select_urls
+from django.conf.urls import url
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -11,5 +12,8 @@ urlpatterns = [
     path('showmember', views.showmember, name='showmember'),
     path('firingresult', views.firingresult, name='firingresult'),
     path('result/<str:pk>', views.result, name='result'),
-    path('adddetail', views.adddetail, name='adddetail')
+    path('adddetail', views.adddetail, name='adddetail'),
+    path('invalid', views.invalid, name='invalid'),
+    path('compile', views.compile, name='compile'),
+    path('tgtimg', views.tgtimg, name='tgtimg')
 ]

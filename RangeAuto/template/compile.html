@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block title %}
-Firing Result
+Compile Result
 {% endblock %}
 
 {% block navbar %}
-<a class="nav-item nav-link active" href="{% url 'adddetail' %}">Add Detail</a>
-<a class="nav-item nav-link" href="{% url 'compile' %}">Compile Result</a>
+<a class="nav-item nav-link" href="{% url 'adddetail' %}">Add Detail</a>
+<a class="nav-item nav-link active" href="{% url 'compile' %}">Compile Result</a>
 <a class="nav-item nav-link" href="{% url 'logoutUser' %}">Log Out</a>
 {% endblock %}
 
@@ -15,14 +15,15 @@ Firing Result
 <div class="container">
     <div class="row mt-4 d-flex justify-content-center">
         <div class="col-md-5 col-xs-12">
-            <div class="h5 login-card text-center p-4 mb-3">
+            
+            <a href="{% url 'adddetail' %}" class="block-link">
+            <div class="h5 block-link text-center p-4 mb-3 not-active">
                 Add Details
             </div>
-            <a href="{% url 'compile' %}" class="block-link">
-            <div class="h5 block-link text-center p-4 mb-3 not-active">
+            </a>
+            <div class="h5 login-card text-center p-4 mb-3">
                 Compile Result
             </div>
-            </a>
         </div>
         <div class="col-md-6 col-xs-12">
             {% if messages %}
@@ -35,12 +36,12 @@ Firing Result
             </div>
             {% endif %}
             <div class="login-card p-5">
-            <form action="" method='POST'>
+            <!-- <form action="" method='POST'>
                 {% csrf_token %}
-                <!-- <div class="row per-input">
+                <div class="row per-input">
                 <div class="col-4 pl-4 d-flex align-items-center">Number</div>
                 <div class="col-8 h6"><input type="text" name="number" class = "form-control"></div>
-                </div> -->
+                </div>
                 {% for f in form %}
                 <div class="row per-input">
                 <div class="col-4 pl-4 d-flex align-items-center"><label for="" class="">{{f.label}}</label></div>
@@ -52,7 +53,16 @@ Firing Result
                         <button type="submit" class="idp-btn">Add</button>
                     </div>
                 </div>
-            </form>
+            </form> -->
+            
+        </div>
+        <br>
+        <div>
+            <a href="{% url 'tgtimg' %}" class="block-link">
+                <div class="h5 block-link text-center p-4 mb-3 not-active">
+                    Take Target Image
+                </div>
+            </a>
         </div>
         </div>
     </div>

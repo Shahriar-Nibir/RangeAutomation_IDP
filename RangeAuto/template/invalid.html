@@ -6,7 +6,7 @@ Range Automation System
 {% endblock %}
 
 {% block navbar %}
-<a class="nav-item nav-link" href="{% url 'logoutUser' %}">Log Out</a>
+
 {% endblock %}
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center full">
@@ -16,6 +16,9 @@ Range Automation System
     </div>
     <div class="col-12">
     <p class="h1 text-center">Not Allowed</p>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+    <a class="nav-item nav-link" href="{% url 'logoutUser' %}">Go Back</a>
     </div>
 </div>
 </div>

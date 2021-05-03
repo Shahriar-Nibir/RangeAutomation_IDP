@@ -20,7 +20,7 @@ def allowed_user(allowed_role=[]):
             if group in allowed_role:
                 return view_func(request, *args, **kwargs)
             else:
-                return render(request, 'invalid.html')
+                return redirect('invalid')
         return wrapped_func
     return decorator
 

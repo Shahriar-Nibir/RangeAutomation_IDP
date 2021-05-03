@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'searchableselect',
+    'ajax_select',
     'Range',
 ]
 
@@ -104,6 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# AJAX_LOOKUP_CHANNELS = {
+#     'firer': ('Range.lookups', 'FirerLookup'),
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -118,6 +123,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+FORM_RENDERER = 'django.forms.renderers.DjangoTemplates'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

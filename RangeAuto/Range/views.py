@@ -6,6 +6,10 @@ from django.contrib.auth import authenticate, login, logout
 from .models import *
 from .decorators import *
 
+import numpy as np
+import cv2
+from PIL import Image
+
 # Create your views here.
 
 
@@ -29,7 +33,7 @@ def loginUser(request):
                 elif group == 'Range-Admin':
                     return redirect('adddetail')
             else:
-                return render(request, 'invalid.html')
+                return redirect('invalid')
         else:
             messages.info(request, "User with this credentials doesn't exist.")
     return render(request, 'login.html')
@@ -98,5 +102,34 @@ def result(request, pk):
 @login_required(login_url='login')
 @allowed_user(allowed_role=['Range-Admin'])
 def adddetail(request):
-    context = {}
+    form = DetailForm()
+    if request.method == 'POST':
+        form = DetailForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.info(request, "New Detail Created.")
+    context = {'form': form}
     return render(request, 'adddetail.html', context)
+
+
+@login_required(login_url='login')
+@allowed_user(allowed_role=['Range-Admin'])
+def compile(request):
+    context = {}
+    return render(request, 'compile.html', context)
+
+
+@login_required(login_url='login')
+@allowed_user(allowed_role=['Range-Admin'])
+def tgtimg(request):
+    # taking Image
+    cam = cv2.VideoCapture(0)
+    img = cam.read()
+    pic = Image.fromarray(img)
+    context = {'pic': pic}
+    return render(request, 'tgtimg.html', context)
+
+
+def invalid(request):
+    context = {}
+    return render(request, 'invalid.html', context)

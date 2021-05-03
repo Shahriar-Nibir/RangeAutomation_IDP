@@ -27,4 +27,16 @@ class Result(models.Model):
     remark = models.CharField(max_length=200, null=True)
 
     def __str__(self):
-        return self.firer.number+'-'+self.ret
+        return self.firer.number + '-' + self.ret
+
+
+class Detail(models.Model):
+    number = models.PositiveIntegerField(null=True)
+    target_1 = models.ForeignKey(
+        Firer, related_name='target_1', on_delete=models.CASCADE, null=True, blank=True)
+    target_2 = models.ForeignKey(
+        Firer, related_name='target_2', on_delete=models.CASCADE, null=True, blank=True)
+    date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.date.date())+'- No'+str(self.number)

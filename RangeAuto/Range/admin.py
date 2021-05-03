@@ -5,3 +5,4 @@ from .models import *
 # superuser:RangeAuto
 admin.site.register(Firer)
 admin.site.register(Result)
+admin.site.register(Detail)
