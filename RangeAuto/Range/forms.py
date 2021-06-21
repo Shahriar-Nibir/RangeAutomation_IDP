@@ -1,10 +1,9 @@
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from searchableselect.widgets import SearchableSelect
 from django import forms
 from .models import *
-from ajax_select import make_ajax_field
+from easy_select2 import *
 
 
 class FirerForm(ModelForm):
@@ -25,9 +24,15 @@ class DetailForm(forms.ModelForm):
         model = Detail
         fields = '__all__'
         widgets = {
-            # 'number': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'target_1': forms.ChoiceField(attrs={'class': 'form-control'}),
-            # 'target_2': forms.ChoiceField(attrs={'class': 'form-control'})
+            'number': forms.TextInput(attrs={'class': 'form-control'}),
+            'target_1': apply_select2(forms.Select),
         }
-    # target_1 = make_ajax_field(Detail, 'target_1', 'firer')
-    # target_2 = make_ajax_field(Detail, 'target_2', 'firer')
+
+
+class FireForm(forms.ModelForm):
+    class Meta:
+        model = Fire
+        fields = ['detail', 'new_target']
+        widgets = {
+            'detail': apply_select2(forms.Select),
+        }

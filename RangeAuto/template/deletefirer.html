@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Firing Result
+{% endblock %}
+
+{% block navbar %}
+<a class="nav-item nav-link" href="{% url 'inputfirer' %}">Input</a>
+<a class="nav-item nav-link active" href="{% url 'showmember' %}">Members</a>
+<a class="nav-item nav-link" href="{% url 'firingresult' %}">Firing Result</a>
+<a class="nav-item nav-link" href="{% url 'logoutUser' %}">Log Out</a>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-4 d-flex justify-content-center">
+        <div class="col-md-5 col-xs-12">
+            <a href="{% url 'inputfirer' %}" class="block-link">
+            <div class="h5 block-link text-center p-4 mb-3 not-active">
+                Input Credentials
+            </div>
+            </a>
+            
+            <div class="h5 block-link text-center p-4 mb-3 ">
+                Delete Member
+            </div>
+            
+            <a href="{% url 'showmember' %}" class="block-link">
+            <div class="h5 login-card text-center p-4 mb-3 not-active">
+                Firing Result 
+            </div>
+            </a>
+
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="login-card p-5">
+                
+                <h5>Are you sure to delete the firer?</h5><br>
+                Number:{{firer.number}}<br>
+                Name:{{firer.name}}<br>
+                Rank:{{firer.rank}}<br>
+                Company:{{firer.coy}}<br>
+                Unit:{{firer.unit}}<br><br>
+            <form action="" method='POST'>
+                {% csrf_token %}
+                    <div>
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        <a href="{% url 'showmember' %}" class="btn btn-sm btn-warning">Cancel</a>
+                    </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<!-- <a class="nav-item nav-link" href="#">Help</a> -->
+{% endblock %}

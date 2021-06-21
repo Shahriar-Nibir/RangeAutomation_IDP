@@ -6,3 +6,5 @@ from .models import *
 admin.site.register(Firer)
 admin.site.register(Result)
 admin.site.register(Detail)
+admin.site.register(Fire)
+admin.site.site_header = "Digital Range Management System"

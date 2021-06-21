@@ -26,6 +26,5 @@ admin.autodiscover()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Range.urls')),
-    # path('searchableselect/', include('searchableselect.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

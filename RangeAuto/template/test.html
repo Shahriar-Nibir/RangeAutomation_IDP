@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Compile Result
+{% endblock %}
+
+{% block navbar %}
+<a class="nav-item nav-link" href="{% url 'adddetail' %}">Add Detail</a>
+<a class="nav-item nav-link active" href="{% url 'compile' %}">Compile Result</a>
+<a class="nav-item nav-link" href="{% url 'logoutUser' %}">Log Out</a>
+{% endblock %}
+
+{% block content %}
+<div class="container full-view d-flex justify-content-center align-items-center">
+    <div class="col-6">
+    <img src="{% static 'image/detect.jpg' %}" alt="" class="img-fluid">
+    <a href="{% url 'detect' %}" class="block-link">
+        <div class="h5 block-link text-center p-4 mb-3 not-active">
+                {{hits}}
+            </div>
+        </a>
+    </div>   
+</div>
+{% endblock %}
+
+{% block footer %}
+<!-- <a class="nav-item nav-link" href="#">Help</a> -->
+{% endblock %}

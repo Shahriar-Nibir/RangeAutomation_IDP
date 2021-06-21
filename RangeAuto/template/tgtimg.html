@@ -12,12 +12,39 @@ Compile Result
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    
-    <img src="{{pic}}" alt="">
+<div class="container full-view d-flex justify-content-center align-items-center">
+    <div class="row">
+    <div class="col-6">
+    <img src="{{fire.fired.url}}" alt="" class="img-fluid">
+    <!-- <img src="{% static 'image/12.jpg' %}" alt="" class="img-fluid"> -->
+        <div class="h5 block-link text-center p-4 mb-3 not-active">
+                Detail:{{fire.detail}}<br>
+                Firer :{{fire.detail.target_1}}
+                <!-- Detail:2021-06-21 No-1<br>
+                Firer :BA-10407 -->
+            </div>
+        
+    </div>  
+    <div class="col-6">
+        <img src="{{fire.detected.url}}" alt="" class="img-fluid">
+        <!-- <img src="{% static 'image/12_detected.jpg' %}" alt="" class="img-fluid"> -->
+
+            <div class="h5 block-link text-center p-4 mb-3 not-active">
+                    Score:{{fire.hits}}
+                </div>
+
+        </div> 
+        <div class="col-6">
+            <a href="{% url 'compile' %}" class="block-link">
+                <div class="h5 block-link text-center p-4 mb-3 not-active">
+                        Next Detail
+                    </div>
+                </a>
+            </div>
+        </div>
 </div>
 {% endblock %}
 
 {% block footer %}
-<a class="nav-item nav-link" href="#">Help</a>
+<!-- <a class="nav-item nav-link" href="#">Help</a> -->
 {% endblock %}

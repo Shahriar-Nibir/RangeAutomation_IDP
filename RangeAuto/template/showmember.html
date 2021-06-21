@@ -24,6 +24,8 @@ Range Automation System
         <th scope="col">Name</th>
         <th scope="col">Coy</th>
         <th scope="col">Unit</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -34,6 +36,8 @@ Range Automation System
         <td class=''>{{f.name}}</td>
         <td class='text-center'>{{f.coy}}</td>
         <td class='text-center'>{{f.unit}}</td>
+        <td class='text-center'><a href="{% url 'updatefirer' f.id %}" class="btn btn-sm btn-primary">Update</a></td>
+        <td class='text-center'><a href="{% url 'deletefirer' f.id %}" class="btn btn-sm btn-danger">Delete</a></td>
       </tr>
       {% endfor %}
     </tbody>
@@ -43,5 +47,5 @@ Range Automation System
 {% endblock %}
 
 {% block footer %}
-<a class="nav-item nav-link" href="#">Help</a>
+<!-- <a class="nav-item nav-link" href="#">Help</a> -->
 {% endblock %}

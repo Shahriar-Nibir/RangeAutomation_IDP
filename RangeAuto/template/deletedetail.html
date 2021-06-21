@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Firing Result
+{% endblock %}
+
+{% block navbar %}
+<a class="nav-item nav-link active" href="{% url 'adddetail' %}">Add Detail</a>
+<a class="nav-item nav-link" href="{% url 'compile' %}">Compile Result</a>
+<a class="nav-item nav-link" href="{% url 'logoutUser' %}">Log Out</a>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-4 d-flex justify-content-center">
+        <div class="col-md-5 col-xs-12">
+            <div class="h5 login-card text-center p-4 mb-3">
+                Delete Details
+            </div>
+            <a href="{% url 'compile' %}" class="block-link">
+            <div class="h5 block-link text-center p-4 mb-3 not-active">
+                Compile Result
+            </div>
+            </a>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="login-card p-5">
+                
+                <h5>Are you sure to delete the detail?</h5><br>
+            <form action="" method='POST'>
+                {% csrf_token %}
+                    <div>
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        <a href="{% url 'showdetail' %}" class="btn btn-sm btn-warning">Cancel</a>
+                    </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<!-- <a class="nav-item nav-link" href="#">Help</a> -->
+{% endblock %}

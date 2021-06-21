@@ -8,7 +8,8 @@ import pytest
     ('home'),
     ('login'),
     ('invalid'),
-    ('aboutus')
+    ('aboutus'),
+    ('showmember')
 ])
 def test_render_views(client, param):
     temp_url = urls.reverse(param)

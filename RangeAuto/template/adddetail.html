@@ -12,6 +12,10 @@ Firing Result
 {% endblock %}
 
 {% block content %}
+{{ form.media.css }}
+    <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/jquery.init.js' %}"></script>
+{{ form.media.js }}
 <div class="container">
     <div class="row mt-4 d-flex justify-content-center">
         <div class="col-md-5 col-xs-12">
@@ -49,17 +53,23 @@ Firing Result
                 {% endfor %}
                 <div class="col-12 d-flex justify-content-center mt-4">
                     <div>
-                        <button type="submit" class="idp-btn">Add</button>
+                        <button type="submit" class="idp-btn">Save</button>
                     </div>
                 </div>
             </form>
         </div>
+        <a href="{% url 'showdetail' %}" class="block-link">
+            <div class="h5 block-link text-center p-4 mb-3 mt-3 not-active">
+                Today's Details
+            </div>
+        </a>
         </div>
+        
     </div>
 </div>
 </div>
 {% endblock %}
 
 {% block footer %}
-<a class="nav-item nav-link" href="#">Help</a>
+<!-- <a class="nav-item nav-link" href="#">Help</a> -->
 {% endblock %}
