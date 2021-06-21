@@ -10,4 +10,4 @@ Backend:
 Python Django
 
 Database:
-SQLite
+POSTGRESQL
