@@ -31,6 +31,7 @@ class Fire(models.Model):
     hits = models.PositiveIntegerField(null=True, blank=True)
     fired = models.ImageField(null=True, blank=True)
     detected = models.ImageField(null=True, blank=True)
+    detected_hits = models.PositiveIntegerField(null=True, blank=True)
 
 
 class Result(models.Model):
