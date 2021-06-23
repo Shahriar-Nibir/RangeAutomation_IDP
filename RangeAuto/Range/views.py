@@ -255,9 +255,9 @@ def invalid(request):
 
 class VideoCamera(object):
     def __init__(self):
-        # self.video = cv2.VideoCapture(
-        #     'rtsp://IDP_A_B:1234asdf_@192.168.68.130:554/stream1')
-        self.video = cv2.VideoCapture(0)
+        self.video = cv2.VideoCapture(
+            'rtsp://IDP_A_B:1234asdf_@192.168.68.158:554/stream1')
+        # self.video = cv2.VideoCapture(0)
         (self.grabbed, self.frame) = self.video.read()
         threading.Thread(target=self.update, args=()).start()
 

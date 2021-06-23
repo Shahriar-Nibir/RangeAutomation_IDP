@@ -14,7 +14,7 @@ Compile Result
 {% block content %}
 <div class="container full-view d-flex justify-content-center align-items-center">
     <div class="row">
-    <div class="col-6">
+    <div class="col col-md-6">
     <img src="{{fire.fired.url}}" alt="" class="img-fluid">
     <!-- <img src="{% static 'image/12.jpg' %}" alt="" class="img-fluid"> -->
         <div class="h5 block-link text-center p-4 mb-3">
@@ -25,7 +25,7 @@ Compile Result
             </div>
         
     </div>  
-    <div class="col-6">
+    <div class="col col-md-6">
         <img src="{{fire.detected.url}}" alt="" class="img-fluid">
         <!-- <img src="{% static 'image/12_detected.jpg' %}" alt="" class="img-fluid"> -->
 
@@ -34,7 +34,7 @@ Compile Result
                 </div>
 
         </div> 
-        <div class="col-6">
+        <div class="col col-md-6">
             <a href="{% url 'compile' %}" class="block-link">
                 <div class="h5 block-link text-center p-4 mb-3 not-active">
                         Next Detail
